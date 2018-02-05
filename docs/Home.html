@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+	<title>WTH Is My Bus</title>
+		
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">/* Add a gray background color and some padding to the footer */
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+		height: 90.5%;
+		position: absolute; 
+		top: 50px; 
+		bottom: 125px; 
+		left: 0; 
+		right: 0;
+		z-index: 1;	
+      }
+	  
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+	  
+		  #right-panel {
+			font-family: 'Roboto','sans-serif';
+			color: white;
+			line-height: 20px;
+			padding-left: 10px;
+			position: absolute;
+			background-color: #212F3C;
+			bottom: 50px;
+			height: 40px;
+			float: right;
+			width: 100%;
+			overflow: auto;
+			z-index: 5;
+			text-align:center;
+			vertical-align: middle;
+		  }
+	  
+		.navbar-collapse.collapse {
+		  display: block!important;
+		}
+
+		.navbar-nav>li, .navbar-nav {
+		  float: left !important;
+		}
+
+		.navbar-nav.navbar-right:last-child {
+		  margin-right: -15px !important;
+		}
+
+		.navbar-right {
+		  float: right!important;
+		}
+	  
+		.navbar-brand {
+		  padding: 0px;
+		}
+		.navbar-brand>img {
+		  height: 100%;
+		  padding: 0;
+		  width: auto;
+		}
+		
+    </style>
+  </head>
+  <body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header pull-left">
+					<a class="navbar-brand" href="#">
+						<img id="brand-image"src="graphics/tamu.jpg" /> 
+					</a>
+				</div>
+				<ul class="nav navbar-nav navbar-left ">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="Social.html">Social</a></li>
+					<li><a href="About.html">About</a></li>
+					<li><a href="Contact.html">Contact</a></li>
+					<li><a href="Schedule.html">Schedules</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<nav class="navbar navbar-inverse navbar-fixed-bottom">
+		  <div class="container-fluid">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a id="route1" href="#"><i class="fa fa-bus"></i> Route 1</a></li>
+				<li><a id="route26" href="#"><i class="fa fa-bus"></i> Route 26</a></li>
+				<li><a id="route31" href="#"><i class="fa fa-bus"></i> Route 31</a></li>
+				<li><a id="route36" href="#"><i class="fa fa-bus"></i> Route 36</a></li>
+			</ul>
+		  </div>
+		</nav>
+		
+    <div id="right-panel">
+		<h5> Texas A&M University Transportation Services</h5>
+	</div>
+    <div id="map"></div>
+    <script>
+		function initMap() {
+			var directionsDisplay = new google.maps.DirectionsRenderer;
+			var directionsService = new google.maps.DirectionsService;
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 15,
+				center: {lat: 30.6160115, lng: -96.3435051}
+			});
+			directionsDisplay.setMap(map);
+
+			var update1 = function() {
+			  display1(directionsService, directionsDisplay);
+			  board1();
+			};
+			var update26 = function() {
+			  display26(directionsService, directionsDisplay);
+			  board26();
+			};
+			var update31 = function() {
+			  display31(directionsService, directionsDisplay);
+			  board31();
+			};
+			var update36 = function() {
+			  display36(directionsService, directionsDisplay);
+			  board36();
+			};
+			document.getElementById('route1').addEventListener('click', update1);
+			document.getElementById('route26').addEventListener('click', update26);
+			document.getElementById('route31').addEventListener('click', update31);
+			document.getElementById('route36').addEventListener('click', update36);
+		}
+		
+		<!-- Route Direction Scripts -->
+		function display1(directionsService, directionsDisplay) {
+			var start1 = new google.maps.LatLng(30.614147, -96.338700)
+			var end1 = new google.maps.LatLng(30.614147, -96.338700)
+			directionsService.route({
+				origin: start1,
+				destination: end1,
+				waypoints: [
+					{
+						location: new google.maps.LatLng(30.615309, -96.337290),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.619792, -96.338302),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.617956, -96.340908),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.617744, -96.343376),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.611844, -96.347920),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.609809, -96.346998),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.607070, -96.345046),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.604873, -96.345340),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.605513, -96.347452),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.611559, -96.341159),
+						stopover: false
+					}
+				],
+			optimizeWaypoints: true,
+			travelMode: 'DRIVING'
+			}, function(response, status) {
+				if (status === 'OK') {
+					directionsDisplay.setDirections(response);
+				} else {
+					window.alert('Directions request failed due to ' + status);
+				}
+			});
+		}
+		
+		function display26(directionsService, directionsDisplay) {
+			var start26 = new google.maps.LatLng(30.614328, -96.339740)
+			var end26 = new google.maps.LatLng(30.614328, -96.339740)
+			directionsService.route({
+				origin: start26,
+				destination: end26,
+				waypoints: [
+					{
+						location: new google.maps.LatLng(30.611712, -96.324386),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.609461, -96.321226),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.607058, -96.317683),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.606155, -96.313441),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.605827, -96.310566),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.605827, -96.310566),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.609407, -96.306500),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.613312, -96.302307),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.616349, -96.298822),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.618751, -96.300791),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.612250, -96.306497),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.608006, -96.312771),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.606488, -96.316078),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.608894, -96.320359),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.611235, -96.323489),
+						stopover: false
+					},
+				],
+			optimizeWaypoints: true,
+			travelMode: 'DRIVING'
+			}, function(response, status) {
+				if (status === 'OK') {
+					directionsDisplay.setDirections(response);
+				} else {
+					window.alert('Directions request failed due to ' + status);
+				}
+			});
+		}
+		
+		function display31(directionsService, directionsDisplay) {
+			var start1 = new google.maps.LatLng(30.614591, -96.339051)
+			var end1 = new google.maps.LatLng(30.614591, -96.339051)
+			directionsService.route({
+				origin: start1,
+				destination: end1,
+				waypoints: [
+					{
+						location: new google.maps.LatLng(30.591846, -96.329238),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.593699, -96.326074),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.595499, -96.322893),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.597481, -96.321147),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.595255, -96.323651),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.593494, -96.326732),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.591869, -96.329533),
+						stopover: false
+					}
+				],
+			optimizeWaypoints: true,
+			travelMode: 'DRIVING'
+			}, function(response, status) {
+				if (status === 'OK') {
+					directionsDisplay.setDirections(response);
+				} else {
+					window.alert('Directions request failed due to ' + status);
+				}
+			});
+		}
+		
+		function display36(directionsService, directionsDisplay) {
+			var start1 = new google.maps.LatLng(30.613952, -96.339721)
+			var end1 = new google.maps.LatLng(30.613952, -96.339721)
+			directionsService.route({
+				origin: start1,
+				destination: end1,
+				waypoints: [
+					{
+						location: new google.maps.LatLng(30.601599, -96.339013),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.597273, -96.338430),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.595999, -96.339878),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.594040, -96.339490),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.593979, -96.336666),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.596494, -96.336701),
+						stopover: false
+					},
+					{
+						location: new google.maps.LatLng(30.601193, -96.338706),
+						stopover: false
+					}
+				],
+			optimizeWaypoints: true,
+			travelMode: 'DRIVING'
+			}, function(response, status) {
+				if (status === 'OK') {
+					directionsDisplay.setDirections(response);
+				} else {
+					window.alert('Directions request failed due to ' + status);
+				}
+			});
+		}
+	
+		var time_1;
+		var time_26;
+		var time_31;
+	    	var time_36;
+		
+	    	function read_time(){
+			var fs = require("fs");
+			var text_time_1 = fs.readFileSync("data/route_1.txt");
+			var time_1 = text_time_1.split("\n");
+			
+			var text_time_26 = fs.readFileSync("data/route_26.txt");
+			var time_26 = text_time_26.split("\n");
+			
+			var text_time_31 = fs.readFileSync("data/route_31.txt");
+			var time_31 = text_time_31.split("\n");
+			
+			var text_time_36 = fs.readFileSync("data/route_36.txt");
+			var time_36 = text_time_36.split("\n");
+		}
+	    	function board1(){
+			document.getElementById('right-panel').innerHTML = 
+				"<h5> Next Leave Time --- Trigon: 1246 Asbury Tower: 1253 Reed Area: 1306</h5>";
+		}
+		
+		function board26(){
+			document.getElementById('right-panel').innerHTML = 
+				"<h5> Next Leave Time --- Trigon: 1242 Wolf Pen: 1257 Redstone: 1300</h5>";
+		}
+		
+		function board31(){
+			document.getElementById('right-panel').innerHTML = 
+				"<h5> Next Leave Time --- Trigon: 1249 Willowick: 1257 Madison Point: 1303</h5>";
+		}
+		
+		function board36(){
+			document.getElementById('right-panel').innerHTML = 
+				"<h5> Next Leave Time --- Trigon: 1245 Woodsman: 1252 U-Club: 1255</h5>";
+		}
+	</script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_0mq03Aiq6YhIMPgzoN3LgCeOaHew3K0&callback=initMap">
+    </script>
+  </body>
+</html>

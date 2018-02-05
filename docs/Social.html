@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WTH Is My Bus</title>
+		
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">/* Add a gray background color and some padding to the footer */
+		* {
+		  box-sizing: border-box;
+		}
+		.menu {
+		  float:left;
+		  width:10%;
+		  text-align:center;
+		}
+		.menuitem {
+		  background-color:#e5e5e5;
+		  padding:8px;
+		  margin-top:7px;
+		}
+		.main {
+		  float:left;
+		  width:45%;
+		  padding:0 20px;
+		  text-align:center;
+		}
+		.right {
+		  background-color:#e5e5e5;
+		  float:left;
+		  width:45%;
+		  padding:15px;
+		  margin-top:7px;
+		  text-align:center;
+		}
+
+		@media only screen and (max-width:620px) {
+		  /* For mobile phones: */
+		  .menu, .main, .right {
+			width:100%;
+		  }
+		}
+		
+		.navbar-brand {
+		  padding: 0px;
+		}
+		.navbar-brand>img {
+		  height: 100%;
+		  padding: 0;
+		  width: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img id="brand-image"src="graphics/tamu.jpg" /> 
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li> <a href="Home.html">Home</a></li>
+				<li class="active"><a href="#">Social</a></li>
+				<li><a href="About.html">About</a></li>
+				<li><a href="Contact.html">Contact</a></li>
+				<li><a href="Schedule.html">Schedules</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div style="background-color:#e5e5e5;padding:10px;text-align:center;">
+	  <h1> <span style="color: #800000;"> Latest Traffic Updates</h1>
+	</div>
+
+	<div style="overflow:auto">
+	  <div class="menu">
+		<div class="menuitem">
+			<fb:login-button 
+				scope="public_profile,email"
+				onlogin="checkLoginState();">
+			</fb:login-button>
+		</div>
+		<div class="menuitem">
+		    <div class="fb-share-button" 
+				data-href="https://github.tamu.edu/pages/hongichhan/CSCE-315-Project-3/Social.html" 
+				data-layout="button_count"
+				data-padding-left="10px">
+			</div>
+		</div>
+	  </div>
+
+	  <div class="main">
+		<h2><span style="color: #800000;">Facebook</h2>
+				<div 
+					class="fb-page" 
+					data-href="https://www.facebook.com/TAMU-Bus2Full-250580342132403/" 
+					data-position="absolute"
+					data-tabs="timeline" 
+					data-width="500" 
+					data-left="70%"
+					data-top="10%"
+					data-align="left"
+					data-small-header="false" 
+					data-adapt-container-width="true" 
+					data-hide-cover="true" 
+					data-show-facepile="true"><blockquote cite="https://www.facebook.com/TAMU-Bus2Full-250580342132403/" 
+					class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TAMU-Bus2Full-250580342132403/">TAMU Bus2Full</a></blockquote>
+				</div>
+			
+			<p>&nbsp;</p>
+			
+			<iframe 
+				src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Femmalee.newman%2Fposts%2F10204075944136988&width=500" 
+				width="500" 
+				height="199" style="border:none;overflow:hidden;align=right;" scrolling="no" 
+				frameborder="0" 
+				allowTransparency="true">
+			</iframe>
+	  </div>
+
+	  <div class="right">
+		<h2><span style="color: #800000;">Twitter</h2>
+		<a class="twitter-timeline"  href="https://twitter.com/search?q=%22A%26M%22%20AND%20%22bus%22%20OR%20%22accidents%22%20near%3A%22college%20station%22%20since%3A2017-11-15" data-widget-id="933823544785588224">Tweets about "A&M" AND "bus" OR "accidents" near:"college station" since:2017-11-15</a>
+	  </div>
+	</div>
+	
+	<!-- Twitter Script -->
+	<script>
+		!function(d,s,id){
+			var js, fjs=d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
+			if(!d.getElementById(id)){
+				js=d.createElement(s);
+				js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js,fjs);			
+				}
+		}
+		(document,"script","twitter-wjs");
+	</script>
+	
+	<!-- Facebook Scripts -->
+	<script src="view-source:http:/connect.facebook.net/en_US/all.js" type="text/javascript"></script> 
+	<script type="text/javascript"></script> 
+    <script>
+		<a onclick = "publishOnFB('Tamu Buses', 'WTH is my bus', 'Bus delays!'); return false;" Share on Facebook</a>
+			
+		FB.login(function(){
+			// Note: The call will only work if you accept the permission       request
+			FB.api('/me/feed', 'post', {message: 'Bus Route Delays People!'});
+		}, {scope: 'publish_actions'});
+    </script>
+	
+
+		
+    <script>
+        $(document).ready(function () {
+            setCurrentAccessToken()
+            $.getJSON()
+            
+        });
+        
+    </script>
+	
+	<div id="fb-root" style="position:absolute;top:600px;left:500px;width:50%"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) 
+				return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+		(document, 'script', 'facebook-jssdk'));
+		
+		function myFBSearch() {
+			var FBqery =  {
+				FB.api('/search?', {fields:q=college station bus route&type=place&}, function(response) {
+					console.log(response);
+				});
+			};
+			
+		}
+	</script>
+
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) 
+				return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+			fjs.parentNode.insertBefore(js, fjs);
+		}
+		(document, 'script', 'facebook-jssdk'));
+	</script>
+    
+    
+	<script>
+		function checkLoginState() {
+			FB.getLoginStatus(
+				function(response) {
+		    			statusChangeCallback(response);
+		  		}
+			);
+		}
+		FB.getLoginStatus(function(response) {
+    			statusChangeCallback(response);
+		});
+	</script>
+	
+	<script>
+        // call when Facebook SDK is loaded
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '145326766119351',
+                xfbml      : true,
+                version    : 'v2.11'
+            });
+
+            // Record PageView event for analytics
+            FB.AppEvents.logPageView();
+        };
+
+        // Facebook SDK loader. Creates a script entry to load the SDK
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src="https://download.WTHtamuBus.com/WTHtamuBusClientApi.js"></script>
+	
+    <script>
+        // This method is invoked when you press the button
+        function loginWithFacebook() {
+            logLine("Logging in via Facebook...");
+
+            // Standard practice: make call to FB.login.
+            // This will show Facebook popup window. To prevent browsers from locking it,
+            // always make sure to call it from Button click event
+            FB.login(function(response){
+                if(!response.authResponse){
+                    logLine("Problem authenticating via Facebook!");
+                } else {
+                    loginWithPlayfab(response.authResponse.accessToken);
+                }
+            });
+        }
+
+        function loginWithWTHtamuBus(accessToken){
+
+            logLine("Logging in via WTHtamuBus...");
+
+            // When given accessToken, make call to LoginWithFacebook API Call
+            WTHtamuBusClientSDK.LoginWithFacebook({
+                AccessToken: accessToken,
+                TitleId: "Post Finder",
+                CreateAccount: true
+            }, onPlayFabResponse);
+        }
+
+        // Handles response from playfab.
+        function onWTHtamuBusResponse(response, error) {
+            if (response)
+                logLine("Response: " + JSON.stringify(response));
+            if (error)
+                logLine("Error: " + JSON.stringify(error));
+        }
+
+        function logLine(message) {
+            var textnode = document.createTextNode(message);
+            document.body.appendChild(textnode);
+            var br = document.createElement("br");
+            document.body.appendChild(br);
+        }
+	    
+		FB.api(
+    		"/",
+    		{
+        		"/{application-id}"
+			
+   		},
+    		function (response) {
+     			if (response && !response.error) {
+        			/* handle the result */
+      			}
+    		}
+		);
+	    
+		FB.api('/search?', {
+			fields:q=college station bus route&type=place&}, function(response) {
+			console.log(response);
+		});
+	    
+    </script>
+
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">Powered by Google, Twitter, and Facebook</div>
+
+</body>
+</html>
