@@ -4,8 +4,8 @@ CSCE 315 Team project 3 - Intergrating applications via API
 
 ## Authors
 
-* **Juan Duran** - *Contributor* - 
-* **Anh Nguyen** - *Contributor* - 
+* **Jose Elizondo** - *Contributor* - 
+* **Krista Capps** - *Contributor* - 
 * **Han Hong** - *Contributor* - [hongsolos](https://github.com/hongsolos)
 
 
@@ -38,8 +38,7 @@ to either go with her roommate or leave extra early to make up for the delay.
 
 ### Usage Instruction
 
-Contains in the docs folder is the pages of the website that we implement the API on. Code blocks are commented for easy reading.
-Please only use this as a reference for your team project.
+Contains in the docs folder is the pages of the websites that we implement the API on. Currently, it is offline due to GitHub's one page per account limitation. Fortunately, you can just launch from the HTML, all pages are linked and all code are commented in block for easy reading. Please only use this as a reference for your team project.
 
 ```
 Home.html
